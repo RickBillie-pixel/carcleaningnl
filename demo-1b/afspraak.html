@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Afspraak maken | CarCleaningNL</title>
+<meta name="description" content="Plan je detailing-afspraak bij CarCleaningNL in Helmond. Binnen twee minuten geregeld, via WhatsApp of telefoon.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-car.svg">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/afspraak.css">
+</head>
+<body>
+
+<a class="skiplink" href="#main">Naar inhoud</a>
+
+<header class="nav is-scrolled" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html" aria-label="CarCleaningNL, terug naar home">
+      <img src="assets/logo-car.svg" alt="" class="nav__mark">
+      <span class="nav__word">CarCleaning<b>NL</b></span>
+    </a>
+    <div class="nav__actions" style="margin-left:auto">
+      <a class="nav__tel" href="tel:+31647421988">+31 6 47421988</a>
+      <a class="nav__back" href="index.html">Terug naar home</a>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="booking">
+  <div class="booking__grid">
+
+    <div class="booking__intro">
+      <h1>Plan je afspraak.</h1>
+      <p>Kies wat je auto nodig heeft, vertel ons wie je bent en verstuur &rsquo;m via WhatsApp. Wij reageren snel met een datum.</p>
+      <ul class="booking__usps">
+        <li>Halen en brengen in de regio Eindhoven</li>
+        <li>5,0 uit 5,0 beoordeeld, 500+ klanten</li>
+        <li>Vaste prijzen, vooraf duidelijk</li>
+      </ul>
+      <p class="booking__alt">Liever direct contact? Bel <a href="tel:+31647421988">+31 6 47421988</a>.</p>
+    </div>
+
+    <form class="booking__form" id="bookform" novalidate>
+      <fieldset>
+        <legend>Welke dienst?</legend>
+        <div class="field">
+          <label for="dienst">Dienst</label>
+          <div class="selectwrap">
+            <select id="dienst" name="dienst" required>
+              <option value="">Kies een dienst</option>
+              <optgroup label="Pakketten, interieur en exterieur">
+                <option value="compleet">Compleet &euro;239</option>
+                <option value="premium">Premium &euro;439</option>
+                <option value="showroom">Showroom &euro;639</option>
+              </optgroup>
+              <optgroup label="Interieur">
+                <option value="bekledingsreiniging">Bekledingsreiniging &euro;59</option>
+                <option value="ozonbehandeling">Ozonbehandeling &euro;79</option>
+                <option value="leerbehandeling">Leerbehandeling &euro;79</option>
+                <option value="interieur">Interieur reiniging &euro;139</option>
+              </optgroup>
+              <optgroup label="Exterieur">
+                <option value="koplamp">Koplamp restauratie &euro;69</option>
+                <option value="cabriodak">Cabriodak reinigen &euro;119</option>
+                <option value="exterieur">Exterieur reiniging &euro;139</option>
+                <option value="polijsten">Polijsten &euro;179</option>
+                <option value="coating">Keramische coating &euro;899</option>
+              </optgroup>
+              <optgroup label="Anders">
+                <option value="overleg">Weet ik nog niet, ik wil overleggen</option>
+              </optgroup>
+            </select>
+          </div>
+          <p class="field__error" hidden>Kies een dienst, of kies &ldquo;ik wil overleggen&rdquo;.</p>
+        </div>
+        <div class="field field--check">
+          <input type="checkbox" id="ophalen" name="ophalen" checked>
+          <label for="ophalen">Haal mijn auto op en breng &rsquo;m terug <span>(regio Eindhoven)</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Wie ben je?</legend>
+        <div class="field">
+          <label for="naam">Naam</label>
+          <input type="text" id="naam" name="naam" autocomplete="name" required>
+          <p class="field__error" hidden>Vul je naam in.</p>
+        </div>
+        <div class="field">
+          <label for="plaats">Woonplaats <span class="optional">(optioneel)</span></label>
+          <input type="text" id="plaats" name="plaats" autocomplete="address-level2" placeholder="">
+          <p class="field__hint">Handig voor het inplannen van halen en brengen.</p>
+        </div>
+        <div class="field">
+          <label for="wens">Wanneer komt het uit? <span class="optional">(optioneel)</span></label>
+          <input type="text" id="wens" name="wens" placeholder="">
+          <p class="field__hint">Bijvoorbeeld: volgende week, of een dag die jou past.</p>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="btn btn--wa btn--big btn--full">
+        <svg viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="M187.58 144.84l-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40a88.1 88.1 0 0 0 88 88a40 40 0 0 0 40-40a8 8 0 0 0-4.42-7.16M128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24"/></svg>
+        Verstuur via WhatsApp
+      </button>
+      <p class="booking__privacy">Je stuurt je aanvraag zelf via WhatsApp. We slaan hier niets op.</p>
+      <p class="booking__done" id="bookdone" hidden>WhatsApp is geopend met je aanvraag. Niets gebeurd? <a href="#" id="bookretry">Probeer opnieuw</a> of bel <a href="tel:+31647421988">+31 6 47421988</a>.</p>
+    </form>
+
+  </div>
+</main>
+
+<footer class="footer footer--slim">
+  <div class="footer__legal">
+    <span>&copy; 2026 CarCleaningNL, Helmond. KVK 88665690</span>
+    <span>Demo-ontwerp, niet de officiële website</span>
+  </div>
+</footer>
+
+<script src="assets/js/afspraak.js" defer></script>
+</body>
+</html>

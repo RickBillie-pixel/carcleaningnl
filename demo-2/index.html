@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CarCleaningNL | Detailing in Helmond, vanaf 59 euro</title>
+<meta name="description" content="Auto detailing zonder poespas. Vaste prijzen van 59 tot 899 euro, halen en brengen in de regio Eindhoven. 5,0 uit 5,0 beoordeeld.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-car.svg">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<a class="skiplink" href="#main">Naar inhoud</a>
+
+<header class="nav" id="nav">
+  <a class="nav__brand" href="index.html" aria-label="CarCleaningNL, naar boven">
+    <img src="assets/logo-car.svg" alt="" class="nav__mark">
+    <span>CARCLEANING<b>NL</b></span>
+  </a>
+  <nav class="nav__links" aria-label="Hoofdmenu">
+    <a href="#bewijs">Bewijs</a>
+    <a href="#prijzen">Prijzen</a>
+    <a href="#werk">Werk</a>
+    <a href="#over">Over</a>
+  </nav>
+  <a class="btn btn--acid nav__cta" href="afspraak.html">Plan je afspraak</a>
+  <button class="nav__burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="mobilemenu">
+    <span></span><span></span>
+  </button>
+</header>
+
+<div class="mobilemenu" id="mobilemenu" hidden>
+  <nav aria-label="Mobiel menu">
+    <a href="#bewijs">Bewijs</a>
+    <a href="#prijzen">Prijzen</a>
+    <a href="#werk">Werk</a>
+    <a href="#over">Over</a>
+    <a class="btn btn--acid" href="afspraak.html">Plan je afspraak</a>
+    <a class="mobilemenu__tel" href="tel:+31647421988">Of bel +31 6 47421988</a>
+  </nav>
+</div>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <picture>
+      <source media="(max-width: 700px)" srcset="assets/img/a-hero-tall.webp">
+      <img class="hero__bg" src="assets/img/a-hero.webp" alt="" fetchpriority="high">
+    </picture>
+    <div class="hero__scrim" aria-hidden="true"></div>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="hero__line"><em>Jouw auto,</em></span>
+        <span class="hero__line">alsof &rsquo;ie uit de</span>
+        <span class="hero__line">showroom komt.</span>
+      </h1>
+      <p class="hero__sub">Detailing in Helmond. Vaste prijzen vanaf &euro;59. Wij halen &rsquo;m op in de regio Eindhoven.</p>
+      <div class="hero__cta">
+        <a class="btn btn--acid btn--big" href="afspraak.html">Plan je afspraak</a>
+        <a class="btn btn--line btn--big" href="#prijzen">Bekijk de prijzen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATS ============ -->
+  <section class="stats" aria-label="Cijfers">
+    <div class="stat"><strong data-count="5,0">0,0</strong><span>uit 5,0 beoordeeld</span></div>
+    <div class="stat"><strong data-count="500" data-suffix="+">0</strong><span>klanten gingen je voor</span></div>
+    <div class="stat"><strong data-count="59" data-prefix="&euro;">&euro;0</strong><span>daar begint het al</span></div>
+  </section>
+
+  <!-- ============ BEWIJS ============ -->
+  <section class="section" id="bewijs">
+    <h2 class="section__title">Bewijs.<span class="section__shadow" aria-hidden="true">Bewijs.</span></h2>
+    <p class="section__intro">Praatjes vullen geen lakwerk. Sleep de lijn en kijk zelf.</p>
+    <div class="bewijs__grid">
+      <div class="ba" data-ba>
+        <img class="ba__img" src="assets/img/ba-ext-after.webp" alt="Motorkap na het polijsten: diepe spiegelglans" draggable="false">
+        <div class="ba__topwrap">
+          <img src="assets/img/ba-ext-before.webp" alt="Motorkap voor de behandeling: dof, krassen en watervlekken" draggable="false">
+        </div>
+        <div class="ba__handle" role="slider" tabindex="0" aria-label="Vergelijk voor en na" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+          <span class="ba__grip"></span>
+        </div>
+        <span class="ba__tag ba__tag--before">Voor</span>
+        <span class="ba__tag ba__tag--after">Na</span>
+      </div>
+      <figure class="bewijs__tile">
+        <img src="assets/img/a-koplamp.webp" alt="Koplamp: links dof en vergeeld, rechts glashelder na restauratie" loading="lazy">
+        <figcaption>Koplamp restauratie, links voor en rechts na</figcaption>
+      </figure>
+      <figure class="bewijs__tile">
+        <img src="assets/img/ba-seat-split.webp" alt="Autostoel: linkerhelft vies, rechterhelft na dieptereiniging" loading="lazy">
+        <figcaption>Bekledingsreiniging, links voor en rechts na</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ PRIJSLADDER (pinned horizontal on desktop) ============ -->
+  <section class="ladder" id="prijzen">
+    <div class="ladder__pin">
+      <div class="ladder__head">
+        <div>
+          <h2>De prijsladder.</h2>
+          <p>Van een frisse binnenkant tot volledige keramische bescherming. Kies je trede.</p>
+        </div>
+        <div class="ladder__nav">
+          <button class="ladder__btn" id="ladderprev" aria-label="Vorige trede" disabled>&larr;</button>
+          <button class="ladder__btn" id="laddernext" aria-label="Volgende trede">&rarr;</button>
+        </div>
+      </div>
+      <div class="ladder__track" id="laddertrack">
+        <a class="rung" href="#diensten">
+          <span class="rung__price"><sup>vanaf</sup> &euro;59</span>
+          <span class="rung__name">Losse diensten</span>
+          <span class="rung__desc">Negen behandelingen, los te boeken. Van bekleding tot koplampen.</span>
+          <span class="rung__go">Bekijk alle diensten</span>
+        </a>
+        <a class="rung" href="afspraak.html?dienst=compleet">
+          <span class="rung__price">&euro;239</span>
+          <span class="rung__name">Compleet</span>
+          <span class="rung__desc">Interieur en exterieur. Volledige reiniging, ontvet, behandeld en gepolijst.</span>
+          <span class="rung__go">Plan je afspraak</span>
+        </a>
+        <a class="rung rung--hot" href="afspraak.html?dienst=premium">
+          <span class="rung__price">&euro;439</span>
+          <span class="rung__name">Premium</span>
+          <span class="rung__desc">Interieur en exterieur, in complete nieuwstaat. Een trede dieper dan compleet.</span>
+          <span class="rung__go">Plan je afspraak</span>
+        </a>
+        <a class="rung" href="afspraak.html?dienst=showroom">
+          <span class="rung__price">&euro;639</span>
+          <span class="rung__name">Showroom</span>
+          <span class="rung__desc">De volle behandeling, binnen en buiten. Alsof &rsquo;ie net van de band rolt.</span>
+          <span class="rung__go">Plan je afspraak</span>
+        </a>
+        <a class="rung rung--img" href="afspraak.html?dienst=coating">
+          <span class="rung__price">&euro;899</span>
+          <span class="rung__name">Keramische coating</span>
+          <span class="rung__desc">Jarenlange beschermlaag. Extra vuilafstotend, lak blijft langer schoon.</span>
+          <span class="rung__go">Plan je afspraak</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ALLE DIENSTEN ============ -->
+  <section class="section" id="diensten">
+    <h2 class="section__title">Alle diensten.<span class="section__shadow" aria-hidden="true">Alle diensten.</span></h2>
+    <div class="dtable">
+      <h3 class="dtable__group">Interieur</h3>
+      <a class="drow" href="afspraak.html?dienst=bekledingsreiniging">
+        <span class="drow__name">Bekledingsreiniging</span>
+        <span class="drow__desc">dieptereiniging, weer fris binnen</span>
+        <span class="drow__price">&euro;59</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=ozonbehandeling">
+        <span class="drow__name">Ozonbehandeling</span>
+        <span class="drow__desc">geen rook- of dierenlucht meer</span>
+        <span class="drow__price">&euro;79</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=leerbehandeling">
+        <span class="drow__name">Leerbehandeling</span>
+        <span class="drow__desc">tegen slijtage en verkleuring</span>
+        <span class="drow__price">&euro;79</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=interieur">
+        <span class="drow__name">Interieur reiniging</span>
+        <span class="drow__desc">dieptereiniging, interieur als nieuw</span>
+        <span class="drow__price">&euro;139</span>
+      </a>
+      <h3 class="dtable__group">Exterieur</h3>
+      <a class="drow" href="afspraak.html?dienst=koplamp">
+        <span class="drow__name">Koplamp restauratie</span>
+        <span class="drow__desc">reinigen, coaten en polijsten</span>
+        <span class="drow__price">&euro;69</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=cabriodak">
+        <span class="drow__name">Cabriodak reinigen</span>
+        <span class="drow__desc">groene aanslag weg, geïmpregneerd</span>
+        <span class="drow__price">&euro;119</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=exterieur">
+        <span class="drow__name">Exterieur reiniging</span>
+        <span class="drow__desc">met de hand gewassen en gedroogd</span>
+        <span class="drow__price">&euro;139</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=polijsten">
+        <span class="drow__name">Polijsten</span>
+        <span class="drow__desc">krassen eruit, diepe glans erin</span>
+        <span class="drow__price">&euro;179</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=coating">
+        <span class="drow__name">Keramische coating</span>
+        <span class="drow__desc">jarenlange bescherming</span>
+        <span class="drow__price">&euro;899</span>
+      </a>
+      <h3 class="dtable__group">Pakketten</h3>
+      <a class="drow" href="afspraak.html?dienst=compleet">
+        <span class="drow__name">Compleet</span>
+        <span class="drow__desc">interieur en exterieur</span>
+        <span class="drow__price">&euro;239</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=premium">
+        <span class="drow__name">Premium</span>
+        <span class="drow__desc">interieur en exterieur</span>
+        <span class="drow__price">&euro;439</span>
+      </a>
+      <a class="drow" href="afspraak.html?dienst=showroom">
+        <span class="drow__name">Showroom</span>
+        <span class="drow__desc">interieur en exterieur</span>
+        <span class="drow__price">&euro;639</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ MARQUEE ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__inner">
+      <span>Polijsten / Keramische coating / Interieur / Exterieur / Ozonbehandeling / Leerbehandeling / Koplampen / Cabriodak / Bekleding / </span><span>Polijsten / Keramische coating / Interieur / Exterieur / Ozonbehandeling / Leerbehandeling / Koplampen / Cabriodak / Bekleding / </span>
+    </div>
+  </div>
+
+  <!-- ============ HALEN & BRENGEN ============ -->
+  <section class="haal">
+    <figure class="haal__media">
+      <img src="assets/img/a-halen.webp" alt="Zwarte auto in een woonstraat in de avond, klaar om opgehaald te worden" loading="lazy">
+    </figure>
+    <div class="haal__copy">
+      <h2>Wij komen &rsquo;m halen.</h2>
+      <p>Regio Eindhoven? Jij levert de sleutel, wij doen de rest. Ophalen, detailen in Helmond, en showroom-schoon weer voor je deur.</p>
+      <a class="btn btn--acid" href="afspraak.html">Plan je afspraak</a>
+    </div>
+  </section>
+
+  <!-- ============ WERK ============ -->
+  <section class="section" id="werk">
+    <h2 class="section__title">Recent werk.<span class="section__shadow" aria-hidden="true">Recent werk.</span></h2>
+    <div class="werk">
+      <figure class="werk__item werk__item--wide">
+        <img src="assets/img/a-polish.webp" alt="Machinaal polijsten van zwarte lak in de werkplaats" loading="lazy">
+        <figcaption>Polijsten</figcaption>
+      </figure>
+      <figure class="werk__item">
+        <img src="assets/img/a-wheel.webp" alt="Matzwarte velg na reiniging" loading="lazy">
+        <figcaption>Velgen</figcaption>
+      </figure>
+      <figure class="werk__item">
+        <img src="assets/img/a-interior.webp" alt="Stoomreiniging van een alcantara interieur" loading="lazy">
+        <figcaption>Interieur stomen</figcaption>
+      </figure>
+      <figure class="werk__item werk__item--wide">
+        <img src="assets/img/a-foam.webp" alt="Zwarte sportwagen vol snow foam in de wasstraat" loading="lazy">
+        <figcaption>Snow foam handwas</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ OVER ============ -->
+  <section class="over" id="over">
+    <div class="over__inner">
+      <h2>Van hobby naar vak.</h2>
+      <p>CarCleaningNL is Jelle Saasen. Begonnen met poetsen uit pure liefhebberij, inmiddels de detailingstudio waar de regio Eindhoven z&rsquo;n auto&rsquo;s brengt. Particulier en zakelijk: wagenparken wekelijks onderhouden, occasions showroom-klaar voor autobedrijven.</p>
+      <div class="over__proof">
+        <div><strong>5,0</strong><span>uit 5,0</span></div>
+        <div><strong>500+</strong><span>klanten</span></div>
+        <div><strong>Helmond</strong><span>regio Eindhoven</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINALE ============ -->
+  <section class="finale">
+    <h2>Klaar voor<br>showroom&#8209;schoon?</h2>
+    <div class="finale__cta">
+      <a class="btn btn--coal btn--big" href="afspraak.html">Plan je afspraak</a>
+      <a class="btn btn--coalline btn--big" href="https://wa.me/31647421988?text=Hoi%20CarCleaningNL%2C%20ik%20heb%20een%20vraag%20over%20het%20schoonmaken%20van%20mijn%20auto." target="_blank" rel="noopener">App ons direct</a>
+    </div>
+    <p class="finale__tel">Bellen kan ook: <a href="tel:+31647421988">+31 6 47421988</a></p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__top">
+    <div class="footer__brand">
+      <img src="assets/logo-car.svg" alt="" class="footer__mark">
+      <img src="assets/logo-word.svg" alt="CarCleaningNL, interieur en exterieur" class="footer__word">
+    </div>
+    <div class="footer__col">
+      <h3>Contact</h3>
+      <a href="tel:+31647421988">+31 6 47421988</a>
+      <a href="https://wa.me/31647421988" target="_blank" rel="noopener">WhatsApp</a>
+      <p>Helmond, regio Eindhoven</p>
+    </div>
+    <div class="footer__col">
+      <h3>Menu</h3>
+      <a href="#bewijs">Bewijs</a>
+      <a href="#prijzen">Prijzen</a>
+      <a href="#werk">Werk</a>
+      <a href="afspraak.html">Afspraak maken</a>
+    </div>
+    <div class="footer__col">
+      <h3>Zakelijk</h3>
+      <p>Wagenparken en showroom-voorbereiding voor autobedrijven. App of bel voor de mogelijkheden.</p>
+      <p class="footer__kvk">KVK 88665690</p>
+    </div>
+  </div>
+  <div class="footer__legal">
+    <span>&copy; 2026 CarCleaningNL</span>
+    <span>Demo-ontwerp, niet de officiële website</span>
+  </div>
+</footer>
+
+<script src="assets/js/gsap.min.js" defer></script>
+<script src="assets/js/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

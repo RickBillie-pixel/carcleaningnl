@@ -1,0 +1,21 @@
+# Afhankelijkheden
+node_modules/
+
+# Screenshot-uitvoer van het reviewharnas: groot en herbouwbaar met tools/shots.mjs
+*/screens/
+assets-gen/
+
+# Lokale sleutels en omgeving
+.env
+.env.*
+*.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+
+# Machinegebonden agent-instellingen
+.claude/settings.local.json
+
+# Los gekloonde skill-repository, hoort niet in deze geschiedenis
+taste-skill/

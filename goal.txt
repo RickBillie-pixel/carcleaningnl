@@ -1,0 +1,79 @@
+GOAL — CARCLEANINGNL WEBSITE DEMOS
+
+Build three completely separate websites for CarCleaningNL, each a showcase
+of extreme capability, taste and artistic flavor — the kind of work that wins
+Awwwards Site of the Day. Then make it convert. Where those two pull against
+each other, the booking wins.
+
+CLIENT
+Car detailing studio in Helmond, serving the Eindhoven region. Read
+https://www.carcleaningnl.com/ first — services, the price ladder from €59 to
+€899, packages, reviews, tone. Take it from the source, invent nothing.
+Brand mark: ./logo.jpeg, wordmark and silhouette only. Copy in Dutch,
+informal "je". Real contact everywhere: +31 6 47421988, WhatsApp, /afspraak.
+Each demo lives in its own folder (demo-1/, demo-2/, demo-3/), runs
+standalone, and is finished — every section, not a hero over filler.
+
+INSTALL FIRST
+  npx skills add https://github.com/Leonxlnx/taste-skill
+      direction, anti-slop, and the Variance / Motion / Density dials
+  npx impeccable install  (then /impeccable init)
+      audit, critique, polish, 59 anti-pattern detectors
+  npm i -g ui-ux-pro-max-cli && uipro init --ai claude
+      design systems, palettes, font pairings
+  npx skills@latest add emilkowalski/skills
+      animate, review-animations, apple-design
+  claude mcp add playwright npx @playwright/mcp@latest
+      the browser
+Installing them is not the point, running them every round is. Where two
+skills disagree, the more specific opinion wins.
+
+THREE DIRECTIONS
+The dark navy is dead — not background, not accent, in none of the three.
+Pick three directions that genuinely disagree on palette, typography and
+energy and commit completely to each. Set the taste-skill dials differently
+per demo so they cannot converge. The choice is yours: pick what this brand
+earns, not the first three that come to mind. Recolor or knock out the logo
+so it belongs in each.
+
+MOTION
+Go as far technically as the concept deserves and no further. Every animation
+earns its place — motion that helps someone grasp the work, see the
+difference or find the booking button stays; motion that proves you can
+animate goes. Run review-animations on each demo and delete what it flags.
+Honour prefers-reduced-motion. No effect ever stands between a visitor and a
+price or a CTA.
+
+ASSETS — GPT-IMAGE-2 VIA KIE.AI
+Real assets, not CSS stand-ins. Verified working:
+  POST https://api.kie.ai/api/v1/jobs/createTask
+  Authorization: Bearer 25d1f046d8cb98e02c93a2a0a1a66305
+  {"model":"gpt-image-2-text-to-image",
+   "input":{"prompt":"...","image_size":"landscape_16_9"}}
+  Poll GET /api/v1/jobs/recordInfo?taskId=<id> until state=success, read
+  data.resultJson.resultUrls[0]. ~90s and 6 credits each, cap at 300.
+  Edits: gpt-image-2-image-to-image. Download locally, the URLs expire.
+
+CONVERSION
+Booking is the goal, so make it the easiest thing on the page. Prices
+scannable, never behind "vraag offerte aan". Proof early: 5,0 uit 5,0, 500+
+klanten, before/after. Halen-en-brengen sold as the USP it is. Ask for as
+little as you can before the booking is done.
+
+ITERATE — NOT OPTIONAL
+Do not ship your first attempt. Drive the real render through Playwright MCP
+at iPhone 12 (390x844, dSF 3), laptop (1440x900) and large (2560x1440), save
+demo-X/screens/round-N-<viewport>.png, and actually look at them. Run
+/impeccable audit and critique every round. Find at least five concrete
+problems per demo per round, fix them, repeat at least three times per site.
+Every pass gets richer, more layered, more detailed. Read each screenshot as
+a visitor holding that device: can I book without scrolling, can I read a
+price, does it hold at 390px and 2560px, are tap targets and contrast honest,
+does anything shift on load.
+
+Keep going until looking at each one genuinely surprises me. If one reads
+like a template, start that one over.
+
+DELIVER
+Three folders that run, plus a short note on what each concept bets on and
+which one you would put money on converting best.

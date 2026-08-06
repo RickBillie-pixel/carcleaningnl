@@ -1,0 +1,75 @@
+/* Booking page, demo-2 Acid Werkplaats */
+.nav__side { margin-left: auto; display: flex; align-items: center; gap: 1.4rem; }
+.nav__tel {
+  color: var(--acid); text-decoration: none; font-weight: 700;
+  font-family: "JetBrains Mono", monospace; font-size: 0.92rem;
+}
+.nav__back { color: var(--dim); text-decoration: none; font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.06em; }
+.nav__back:hover { color: var(--bone); }
+
+.booking { padding: clamp(2.5rem, 7vh, 5rem) clamp(1.25rem, 4vw, 3rem) clamp(4rem, 10vh, 7rem); }
+.booking__grid {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 5fr 6fr; gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: start;
+}
+.booking__intro h1 { font-size: clamp(2.8rem, 6vw, 5rem); }
+.booking__intro > p { margin-top: 1.4rem; color: var(--dim); font-size: 1.12rem; max-width: 44ch; }
+.booking__usps { list-style: none; margin: 2rem 0 0; display: grid; gap: 0.7rem; }
+.booking__usps li { position: relative; padding-left: 1.8rem; color: var(--bone); }
+.booking__usps li::before {
+  content: ""; position: absolute; left: 0; top: 0.48em;
+  width: 0.95em; height: 0.5em;
+  border-left: 3px solid var(--acid); border-bottom: 3px solid var(--acid);
+  transform: rotate(-45deg);
+}
+.booking__alt { margin-top: 2.2rem; color: var(--dim); }
+.booking__alt a { color: var(--acid); font-weight: 700; font-family: "JetBrains Mono", monospace; }
+
+.booking__form {
+  background: var(--coal-2); border: 1px solid var(--line);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+.booking__form fieldset { border: none; margin: 0 0 1.9rem; }
+.booking__form legend {
+  font-variation-settings: "wdth" 120;
+  font-weight: 900; font-size: 1.15rem; text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+.field { margin-bottom: 1.25rem; }
+.field label { display: block; font-weight: 600; font-size: 0.98rem; margin-bottom: 0.5rem; }
+.field .optional { color: var(--dim); font-weight: 400; }
+.field input[type="text"], .field select {
+  width: 100%; padding: 0.85rem 1rem;
+  font: inherit; color: var(--bone);
+  background: var(--coal);
+  border: 1px solid var(--line); border-radius: 0;
+  transition: border-color 0.2s var(--ease);
+  appearance: none;
+}
+.selectwrap { position: relative; }
+.selectwrap::after {
+  content: ""; position: absolute; right: 1.05rem; top: 50%;
+  width: 0.55em; height: 0.55em; pointer-events: none;
+  border-right: 2px solid var(--acid); border-bottom: 2px solid var(--acid);
+  transform: translateY(-70%) rotate(45deg);
+}
+.field input:focus, .field select:focus { outline: none; border-color: var(--acid); }
+.field__hint { color: var(--dim); font-size: 0.88rem; margin-top: 0.45rem; }
+.field__error { color: #ff8d70; font-size: 0.92rem; margin-top: 0.45rem; font-weight: 600; }
+.field.is-invalid input, .field.is-invalid select { border-color: #ff8d70; }
+
+.field--check { display: flex; gap: 0.75rem; align-items: flex-start; }
+.field--check input { width: 1.3rem; height: 1.3rem; margin-top: 0.12rem; accent-color: var(--acid); flex-shrink: 0; }
+.field--check label { font-weight: 500; margin: 0; }
+.field--check label span { color: var(--dim); }
+
+.btn--full { width: 100%; }
+.booking__privacy { margin-top: 1rem; color: var(--dim); font-size: 0.88rem; text-align: center; }
+.booking__done { margin-top: 1rem; text-align: center; font-size: 0.95rem; }
+.booking__done a { color: var(--acid); font-weight: 700; }
+
+@media (max-width: 900px) {
+  .booking__grid { grid-template-columns: 1fr; }
+  .nav__back { display: none; }
+}
