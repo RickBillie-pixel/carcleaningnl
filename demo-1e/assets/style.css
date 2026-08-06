@@ -46,6 +46,9 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :target, section[id] { scroll-margin-top: clamp(90px, 13vh, 132px); }
 html { scroll-behavior: smooth; }
+html.lenis { scroll-behavior: auto; }
+.lenis.lenis-stopped { overflow: clip; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
@@ -264,6 +267,11 @@ img { max-width: 100%; display: block; height: auto; }
   border-radius: 0 0 36px 36px;
   background: linear-gradient(to top, rgba(0, 18, 28, 0.5), rgba(0, 18, 28, 0.16) 46%, rgba(0, 18, 28, 0));
 }
+.hero__frame {
+  position: relative; overflow: hidden;
+  border-radius: 36px;
+  background: var(--peach);
+}
 .hero__photo {
   width: 100%;
   aspect-ratio: 2.055;
@@ -271,8 +279,8 @@ img { max-width: 100%; display: block; height: auto; }
   /* De foto krimpt mee zodat de complete hero, kaarten incluis, binnen het
      laptopscherm valt; op hoge schermen blijft de 2.055:1 van de referentie staan. */
   max-height: max(300px, calc(100vh - 262px - 16.5cqw));
-  border-radius: 36px;
-  background: var(--peach);
+  /* Iets ruimer dan het frame, zodat er marge is om in te schuiven. */
+  transform: translate3d(0, var(--par, 0%), 0) scale(1.075);
 }
 .herocards {
   position: absolute; z-index: 2; left: 2.8%; right: 2.8%; bottom: 4.8%; min-height: 49.4%;
@@ -379,6 +387,10 @@ img { max-width: 100%; display: block; height: auto; }
   transition: background 0.2s var(--ease), color 0.2s var(--ease);
 }
 .card:hover .card__book { background: var(--red); color: var(--white); }
+.card__label { transition: transform 0.4s var(--ease); }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__label { transform: translateY(-4px); }
+}
 .card__label {
   position: absolute; left: 8cqw; right: 8cqw; bottom: 7cqw; z-index: 2;
   color: var(--white);
@@ -455,6 +467,10 @@ img { max-width: 100%; display: block; height: auto; }
 .prow strong {
   font-family: var(--display);
   font-weight: 700; font-size: 1.6rem; color: var(--red); letter-spacing: -0.01em;
+  transition: transform 0.3s var(--ease);
+}
+@media (hover: hover) and (pointer: fine) {
+  .prow:hover strong { transform: translateX(-3px); }
 }
 
 /* ---------- Pakketten ---------- */
@@ -594,6 +610,12 @@ img { max-width: 100%; display: block; height: auto; }
 @media (prefers-reduced-motion: no-preference) {
   .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
   .js .reveal.is-in { opacity: 1; transform: none; }
+  /* De hero bouwt zichzelf op in leesvolgorde: pill, kop, chips, beeld. */
+  .js .hero__pill { transition-delay: 0.04s; }
+  .js .hero__titlewrap { transition-delay: 0.13s; }
+  .js .hero__stage { transition-delay: 0.26s; transform: translateY(26px) scale(0.988); }
+  .js .hero__stage.is-in { transform: none; }
+
   /* Rijen komen met een korte trap binnen: net genoeg om de leesrichting te sturen. */
   .cards .reveal:nth-child(2) { transition-delay: 0.06s; }
   .cards .reveal:nth-child(3) { transition-delay: 0.12s; }

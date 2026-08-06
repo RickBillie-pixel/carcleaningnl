@@ -1,7 +1,39 @@
-// CarCleaningNL demo-1 "Porselein"
+// CarCleaningNL demo-1e
 (function () {
   "use strict";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Lenis: vloeiend scrollen ----------
+     Lenis stuurt de nátieve scrollpositie aan, dus position:sticky,
+     IntersectionObserver en scroll-margin blijven gewoon werken.
+     Bij prefers-reduced-motion slaan we het hele ding over. */
+  var lenis = null;
+  if (!reduced && typeof window.Lenis === "function") {
+    lenis = new window.Lenis({
+      duration: 1.05,
+      // ease-out-expo: snel weg, zacht aankomen. Geen veer, geen bounce.
+      easing: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); },
+      wheelMultiplier: 1,
+      touchMultiplier: 1.6,
+      syncTouch: false, // op de telefoon voelt het nátieve scrollen beter
+    });
+    var raf = function (time) { lenis.raf(time); requestAnimationFrame(raf); };
+    requestAnimationFrame(raf);
+
+    // Ankers via Lenis, met ruimte voor de plakbalk.
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      var id = a.getAttribute("href");
+      if (id.length < 2) return;
+      a.addEventListener("click", function (ev) {
+        var target = document.querySelector(id);
+        if (!target) return;
+        ev.preventDefault();
+        var navEl = document.getElementById("nav");
+        lenis.scrollTo(target, { offset: navEl ? -(navEl.offsetHeight + 16) : -24 });
+        history.pushState(null, "", id);
+      });
+    });
+  }
 
   /* ---------- Sticky nav hairline (IO sentinel, no scroll listener) ---------- */
   var nav = document.getElementById("nav");
@@ -43,6 +75,63 @@
     }, { threshold: [0, 0.4, 1] }).observe(heroEl);
   } else if (wa) {
     wa.classList.add("is-on");
+  }
+
+  /* ---------- Parallax op de herofoto ----------
+     De foto staat iets ruimer in zijn frame en schuift een fractie mee met
+     het scrollen: genoeg om diepte te geven, te weinig om op te vallen. */
+  var frame = document.querySelector(".hero__frame");
+  if (frame && !reduced) {
+    var photo = frame.querySelector(".hero__photo");
+    var parallaxTicking = false;
+    var applyParallax = function () {
+      parallaxTicking = false;
+      var r = frame.getBoundingClientRect();
+      if (r.bottom < -200 || r.top > window.innerHeight + 200) return;
+      // -1 (frame onder beeld) .. 1 (frame boven beeld)
+      var p = (r.top + r.height / 2 - window.innerHeight / 2) / (window.innerHeight / 2 + r.height / 2);
+      photo.style.setProperty("--par", (Math.max(-1, Math.min(1, p)) * -3.2).toFixed(2) + "%");
+    };
+    var queueParallax = function () {
+      if (parallaxTicking) return;
+      parallaxTicking = true;
+      requestAnimationFrame(applyParallax);
+    };
+    if (lenis) lenis.on("scroll", queueParallax);
+    else window.addEventListener("scroll", queueParallax, { passive: true });
+    window.addEventListener("resize", queueParallax);
+    applyParallax();
+  }
+
+  /* ---------- Cijfers tellen op zodra ze in beeld komen ---------- */
+  var stats = document.querySelector(".stats");
+  if (stats && !reduced) {
+    var countUp = function (el) {
+      var text = el.textContent;
+      var m = text.match(/^(\D*)(\d+(?:[.,]\d+)?)(\D*)$/);
+      if (!m) return;
+      var prefix = m[1], suffix = m[3];
+      var decimals = (m[2].split(/[.,]/)[1] || "").length;
+      var sep = m[2].indexOf(",") > -1 ? "," : ".";
+      var end = parseFloat(m[2].replace(",", "."));
+      var t0 = null, dur = 900;
+      var step = function (t) {
+        if (!t0) t0 = t;
+        var p = Math.min((t - t0) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 4);
+        el.textContent = prefix + (end * eased).toFixed(decimals).replace(".", sep) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      };
+      el.textContent = prefix + (0).toFixed(decimals).replace(".", sep) + suffix;
+      requestAnimationFrame(step);
+    };
+    new IntersectionObserver(function (entries, obs) {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      stats.querySelectorAll("strong").forEach(function (el, i) {
+        setTimeout(function () { countUp(el); }, i * 70);
+      });
+    }, { threshold: 0.4 }).observe(stats);
   }
 
   /* ---------- Reveal on scroll ---------- */
