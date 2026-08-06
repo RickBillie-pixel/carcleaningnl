@@ -19,3 +19,6 @@ Thumbs.db
 
 # Los gekloonde skill-repository, hoort niet in deze geschiedenis
 taste-skill/
+
+# Firebase deploy-cache
+.firebase/
