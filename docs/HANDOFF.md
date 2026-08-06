@@ -118,14 +118,65 @@ these values were measured, not guessed. Carry them over.
 3. **Google reviews, properly.** I will supply the real review texts. Build the
    component now — star rating, quote, name, month/year, Google attribution —
    with a clean empty state until I paste them in.
-4. **Booking flow.** Today it deep-links `afspraak.html?dienst=<slug>` and hands
-   off to WhatsApp. Design something better: service picker, pickup toggle, date
-   preference, and a confirmation the customer can trust. Still no backend unless
-   you make the case for one.
+4. **Booking flow — build a keuzehulp (guided chooser).** This is the piece I
+   care most about. Most visitors do not know whether they need "polijsten" or
+   "keramische coating"; a dropdown of twelve services makes them bounce.
+
+   Build a short click-through instead. A handful of plain questions with big
+   tappable answer cards, no typing:
+
+   - Wat wil je laten doen? → binnenkant / buitenkant / allebei
+   - Hoe ziet de auto eruit? → normaal vuil / flink vuil / haren of vlekken /
+     doffe lak of krassen
+   - Moeten we hem ophalen? → ja, regio Eindhoven / nee, ik kom langs
+
+   At the end, show the matching service or package from the real price list
+   above with its real price, plus one honest alternative ("meer of minder dan
+   dit? kies zelf"), and only then ask for **naam, e-mailadres, telefoonnummer**
+   — three fields, nothing else. No account, no address, no car brand, no date
+   picker up front; those belong in the reply.
+
+   Requirements:
+   - Every state is a real URL (`/keuzehulp/binnenkant/…`) so people can go back,
+     share it, and land on a result — not a modal that traps them.
+   - Works without JavaScript: it must degrade to the existing service list and
+     a plain form.
+   - The mapping from answers to service must be honest. If the answers do not
+     clearly point at one service, say so and offer "we kijken er even naar"
+     rather than upselling to the €899 coating by default.
+   - Keep the WhatsApp route as an equal option next to the form. Some people
+     will always prefer to just message.
+   - Ask me before choosing how the form submits (WhatsApp deeplink, e-mail
+     service, or a real backend). Do not add a backend without agreeing it first.
 5. **UX pass.** Real information architecture, not a section stack. Think about
    what a first-time visitor needs in what order, and what a returning customer
    needs (they want the phone number in one tap).
-6. **Authentic, not templated.** The reference is a strong starting point but the
+6. **A much better hero photo.** This is the weakest thing on the page right now.
+   The current image (`demo-1e/assets/img/n-ext.webp`) is a dark car under foam:
+   it reads as texture, not as a car, and it fights the light field behind the
+   headline. Look at `inspiration/image1.png` — that photo works because it is
+   bright, the car is unmistakably a car at a three-quarter rear angle, water is
+   frozen mid-spray with visible droplets, and the background is light enough
+   that the image and the headline share one atmosphere.
+
+   Source or generate a replacement that hits all of that:
+   - a single car, three-quarter angle, filling the frame, clearly readable at a
+     3:1 crop because the hero clamps the height on laptops
+   - water spray caught mid-air, high shutter feel, droplets visible
+   - bright and high-key, light background at the top of the frame so it blends
+     into the azure field behind the title instead of slamming into it
+   - cool colour temperature — the palette is navy and azure, so avoid the golden
+     hour look of the other assets
+   - at least 2000 px wide, exported to webp alongside the others
+
+   `tools/kie-*.mjs` already wires up image generation (gpt-image-2 via kie.ai);
+   it reads `KIE_KEY` from the environment. `tools/manifest.mjs` holds the prompt
+   structure used for the existing set. Show me two or three options before
+   committing one, and check the crop at 390, 1440 and 2560 — the hero is much
+   shorter on a laptop than the full image, so the composition has to survive
+   being cropped to a band.
+
+7. **Authentic, not templated.** The reference is a strong starting point but the
    site should feel like this specific business in this specific town. Avoid the
    saturated AI landing-page grammar: no tiny uppercase eyebrow above every
    section, no numbered `01 / 02 / 03` scaffolding, no gradient text, no
